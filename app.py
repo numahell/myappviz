@@ -37,6 +37,18 @@ def index():
 
     return make_response(render_template('index.html', **context))
 
+
+@app.route('/mypage.html')
+@oauth.oauth_required
+def mypage():
+    """
+    Example view demonstrating rendering a simple HTML page.
+    """
+    context = make_context()
+
+    return make_response(render_template('mypage.html', **context))
+
+
 app.register_blueprint(static.static)
 app.register_blueprint(oauth.oauth)
 
